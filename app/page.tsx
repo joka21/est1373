@@ -20,7 +20,7 @@ function Page() {
           
           <div className="space-y-4 max-w-2xl mx-auto">
             <p>
-              In einer Stadt mit einer langen Geschichte als &quot;Samt- und Seidenstadt&quot; entsteht eine neue Verbindung zwischen Vergangenheit und Zukunft. est1373.de ist nicht nur ein Marktplatz, sondern eine Plattform, die Krefelds textiles Erbe mit moderner, nachhaltiger Mode vereint.
+              In einer Stadt mit einer Geschichte als &quot;Samt- und Seidenstadt&quot; entsteht eine neue Verbindung zwischen Vergangenheit und Zukunft. est1373.de ist nicht nur ein Marktplatz, sondern eine Plattform, die Krefelds textiles Erbe mit moderner, nachhaltiger Mode vereint.
             </p>
             
             <p>
