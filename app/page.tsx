@@ -59,7 +59,7 @@ function Page() {
             className="bg-green-700 text-white py-2 px-6 rounded-full hover:bg-green-800 transition duration-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
             aria-label="Jetzt unseren Shop entdecken"
           >
-            Jetzt entdecke
+            Jetzt entdecken
           </a>
         </nav>
       </main>
