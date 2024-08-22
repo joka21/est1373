@@ -1,11 +1,23 @@
 import React from 'react';
 
 function Page() {
+  // Funktion zum Setzen des Fokus auf den Hauptinhalt
+  const handleSkipToContent = (event: { preventDefault: () => void; }) => {
+    event.preventDefault();
+    const mainContent = document.getElementById('main-content');
+    if (mainContent) {
+      mainContent.setAttribute('tabindex', '-1');  // Hauptinhalt temporär fokussierbar machen
+      mainContent.focus();
+      mainContent.removeAttribute('tabindex');  // Attribut nach dem Fokussieren entfernen
+    }
+  };
+
   return (
     <div className="min-h-screen bg-cream-100 text-gray-900 p-6" lang="de">
       <a 
         href="#main-content" 
         className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 bg-green-700 text-white p-2"
+        onClick={handleSkipToContent}  // Event-Handler hinzufügen
       >
         Zum Hauptinhalt springen
       </a>
@@ -26,19 +38,15 @@ function Page() {
             <p>
               In einer Stadt mit einer Geschichte als &quot;Samt- und Seidenstadt&quot; entsteht eine neue Verbindung zwischen Vergangenheit und Zukunft. est1373.de ist nicht nur ein Marktplatz, sondern eine Plattform, die Krefelds textiles Erbe mit moderner, nachhaltiger Mode vereint.
             </p>
-
             <p>
               Unser Name, inspiriert vom Gründungsjahr Krefelds 1373, erinnert an die jahrhundertealte Tradition, die wir in die heutige Modewelt bringen. Bei uns finden Sie eine sorgfältige Auswahl an Kollektionen von bekannten Marken und jungen Designern, die alle Wert auf Qualität, Nachhaltigkeit und zeitlose Eleganz legen.
             </p>
-
             <p>
               Wir bieten nicht nur einzigartige, umweltbewusste Mode, sondern auch eine Gemeinschaft für alle, die die Geschichte hinter ihren Kleidungsstücken schätzen. Ob lokale Talente oder kreative Upcycling-Ideen – jedes Stück erzählt eine Geschichte von Handwerkskunst und Verantwortung.
             </p>
-
             <p>
               Entdecken Sie bei uns die Zukunft der Mode, die fest in der reichen Vergangenheit Krefelds verwurzelt ist. est1373.de – wo Tradition auf Innovation trifft und jeder Kauf ein Schritt in Richtung einer nachhaltigeren Zukunft ist.
             </p>
-
             <p className="font-semibold text-center">
               Seien Sie Teil unserer Geschichte. Shoppen Sie bewusst. Leben Sie nachhaltig. Tragen Sie ein Stück Krefeld.
             </p>
