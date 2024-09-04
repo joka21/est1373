@@ -4,7 +4,7 @@ import { Mukta, Playfair_Display } from 'next/font/google';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Barrei',
+  title: 'Mode aus Krefeld | est1373.de',
   description: 'A Next.js project with TypeScript and TailwindCSS.',
   keywords: 'Next.js, Typescript, TailwindCSS',
 };
