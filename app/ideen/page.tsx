@@ -19,7 +19,7 @@ const IdeasPage = () => {
 
   const filteredIdeas = filter === 'all' ? ideas : ideas.filter(idea => idea.category === filter);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Hier würde normalerweise die Logik zum Hinzufügen der neuen Idee stehen
     console.log("Neue Idee:", newIdea);
