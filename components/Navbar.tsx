@@ -12,9 +12,7 @@ function Navbar() {
       <Link href='/shop' className="focus:outline-none focus:ring-2 focus:ring-green-500">
         Online Shops
       </Link>
-      <Link href='/web' className="focus:outline-none focus:ring-2 focus:ring-green-500">
-        Webseite
-      </Link>
+    
       <Link href='/ideen' className="focus:outline-none focus:ring-2 focus:ring-green-500">
         Ideen
       </Link>
