@@ -16,6 +16,9 @@ function Navbar() {
       <Link href='/ideen' className="focus:outline-none focus:ring-2 focus:ring-green-500">
         Ideen
       </Link>
+      <Link href='/botope' className="focus:outline-none focus:ring-2 focus:ring-green-500">
+        Botope
+      </Link>
     </nav>
   );
 }
