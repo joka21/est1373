@@ -27,7 +27,7 @@ const BotopePage: React.FC = () => {
       <div className="mb-8 text-center">
         <p className="text-xl">
           Botope ist ein einzigartiges Mischwesen - ein bisschen Frosch, ein bisschen Ameise und etwas ganz Eigenes.
-          Auf seiner Reise trifft er verschiedene Charaktere und lernt wichtige Lektionen über Nachhaltigkeit und Gemeinschaft.
+          Auf seiner Reise trfft er verschiedene Charaktere und lernt wichtige Lektionen über Nachhaltigkeit und Gemeinschaft.
         </p>
       </div>
       
