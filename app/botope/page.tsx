@@ -1,65 +1,60 @@
 'use client';
 
-import React, { useState } from 'react';
-
-const botopeMeetings = [
-  { id: 1, character: "Frosch", lesson: "Anpassungsfähigkeit", story: "Botope lernt vom Frosch, sich verschiedenen Umgebungen anzupassen." },
-  { id: 2, character: "Ameise", lesson: "Gemeinschaftssinn", story: "Die Ameisen zeigen Botope die Stärke der Zusammenarbeit." },
-  { id: 3, character: "Eule", lesson: "Weisheit", story: "Die Eule lehrt Botope, dass Wissen und Verständnis wertvoll sind." },
-  { id: 4, character: "Schmetterling", lesson: "Verwandlung", story: "Botope erfährt, dass Veränderung ein natürlicher Teil des Lebens ist." },
-  { id: 5, character: "Biber", lesson: "Umweltgestaltung", story: "Der Biber zeigt, wie man die Umwelt positiv gestalten kann." },
-  { id: 6, character: "Kolibri", lesson: "Effizienz", story: "Botope lernt vom Kolibri, Ressourcen effizient zu nutzen." },
-  { id: 7, character: "Chamäleon", lesson: "Anpassung", story: "Das Chamäleon lehrt Botope, sich anzupassen, ohne sich selbst zu verlieren." },
-  { id: 8, character: "Delfin", lesson: "Kommunikation", story: "Botope entdeckt die Bedeutung klarer Kommunikation." },
-];
+import React from 'react';
 
 const BotopePage: React.FC = () => {
-  const [sortBy, setSortBy] = useState<'character' | 'lesson'>('character');
-
-  const sortedMeetings = [...botopeMeetings].sort((a, b) => {
-    return a[sortBy].localeCompare(b[sortBy]);
-  });
-
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-6 text-center">Botopes Abenteuer</h1>
+    <div className="container mx-auto px-4 py-8 bg-white text-black">
+      <h1 className="text-4xl font-bold mb-6 text-center">Die Geschichte von Botope</h1>
       
       <div className="mb-8 text-center">
         <p className="text-xl">
           Botope ist ein einzigartiges Mischwesen - ein bisschen Frosch, ein bisschen Ameise und etwas ganz Eigenes.
-          Auf seiner Reise trfft er verschiedene Charaktere und lernt wichtige Lektionen über Nachhaltigkeit und Gemeinschaft.
+          Folgen Sie seiner Reise der Selbstentdeckung und des Umweltbewusstseins.
         </p>
       </div>
       
-      <div className="mb-6">
-        <select 
-          className="border border-gray-300 rounded-md p-2"
-          onChange={(e) => setSortBy(e.target.value as 'character' | 'lesson')}
-          value={sortBy}
-        >
-          <option value="character">Nach Charakter sortieren</option>
-          <option value="lesson">Nach Lektion sortieren</option>
-        </select>
+      <div className="space-y-6">
+        <Section title="Ein besonderes Wesen">
+          Botope ist anders als alle anderen. Als Mischwesen aus Frosch, Ameise und etwas Undefinierbarem fühlt er sich nirgendwo richtig zugehörig. Diese Einzigartigkeit ist sowohl seine größte Stärke als auch seine größte Herausforderung.
+        </Section>
+
+        <Section title="Die Suche nach Zugehörigkeit">
+          Getrieben von dem Wunsch, Artgenossen zu finden, macht sich Botope auf eine abenteuerliche Reise. Er beobachtet andere Tiere, die in Gemeinschaften leben, und hofft, irgendwo seine eigene Art zu entdecken.
+        </Section>
+
+        <Section title="Unerwartete Begegnungen">
+          Auf seiner Reise trifft Botope verschiedene Tiere und Wesen. Obwohl er bei ihnen keine direkte Zugehörigkeit findet, lernt er von jedem etwas Wertvolles über sich selbst und die Welt um ihn herum.
+        </Section>
+
+        <Section title="Hilfsbereitschaft und Nachhaltigkeit">
+          Bei jeder Begegnung hilft Botope den anderen bei ihren Problemen. Durch diese Interaktionen werden wichtige Themen der Nachhaltigkeit und des Umweltschutzes angesprochen. Botope lernt, wie jeder auf seine Weise zum Schutz der Natur beitragen kann.
+        </Section>
+
+        <Section title="Die Erkenntnis">
+          Am Ende seiner Reise macht Botope eine wichtige Entdeckung: Es ist nicht schlimm, keine eigene Art zu haben. Die Vielfalt der Natur und die Verbindungen, die er geknüpft hat, machen ihn zu einem wertvollen Teil des großen Ganzen.
+        </Section>
+
+        <Section title="Eine neue Gemeinschaft">
+          Botope erkennt, dass er wie die Natur selbst eine Mischung aus vielen Elementen ist. Er wird zum verbindenden Element zwischen verschiedenen Gruppen und findet so seine eigene, einzigartige Rolle in der Gemeinschaft.
+        </Section>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sortedMeetings.map((meeting) => (
-          <div key={meeting.id} className="border rounded-lg p-4 flex flex-col bg-green-50">
-            <h2 className="text-xl font-semibold mb-2">{meeting.character}</h2>
-            <p className="text-sm text-green-600 mb-2">Lektion: {meeting.lesson}</p>
-            <p className="text-sm mb-4 flex-grow">{meeting.story}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-8 p-4 bg-green-100 rounded-lg text-center">
-        <p className="text-green-800 font-semibold">
-          Botopes Reise lehrt uns, dass jeder von uns einzigartig ist und dennoch einen wichtigen Platz in der Gemeinschaft hat.
-          Seine Geschichte ermutigt uns, füreinander da zu sein und gemeinsam für eine nachhaltige und vielfältige Welt einzustehen.
+      <div className="mt-8 p-4 border border-gray-200 rounded-lg text-center">
+        <p className="font-semibold">
+          Botopes Geschichte lehrt uns, dass jeder von uns einzigartig ist und dennoch einen wichtigen Platz in der Gemeinschaft hat.
+          Sie ermutigt uns, füreinander da zu sein und gemeinsam für eine nachhaltige und vielfältige Welt einzustehen.
         </p>
       </div>
     </div>
   );
 };
+
+const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
+  <div className="shadow-md rounded-lg p-4">
+    <h2 className="text-2xl font-semibold mb-2">{title}</h2>
+    <p>{children}</p>
+  </div>
+);
 
 export default BotopePage;
