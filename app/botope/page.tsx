@@ -14,7 +14,7 @@ const Botope: React.FC = () => {
       
       <div className="mb-8">
         <p className="text-xl text-gray-800">
-          Botope ist ein einzigartiges Wesen auf einer besonderen Reise. Lasst uns seine Geschichte entdecken!
+          Botope ist ein einzigartiges Wesen auf einer besonderen Reise. Lsst uns seine Geschichte entdecken!
         </p>
       </div>
       
