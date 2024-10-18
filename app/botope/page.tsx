@@ -42,7 +42,7 @@ const BotopePage: React.FC = () => {
       
       <div className="mt-8 p-4 border border-gray-200 rounded-lg text-center">
         <p className="font-semibold">
-          Botopes Geschichte lehrt uns, dass jeder von uns einzigartig ist und dennoch einen wichtigen Platz in der Gemeinschaft hat.
+          Botopes Story lehrt uns, dass jeder von uns einzigartig ist und dennoch einen wichtigen Platz in der Gemeinschaft hat.
           Sie ermutigt uns, füreinander da zu sein und gemeinsam für eine nachhaltige und vielfältige Welt einzustehen.
         </p>
       </div>
