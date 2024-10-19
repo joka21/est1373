@@ -13,6 +13,10 @@ const config: Config = {
         sans: ['var(--font-mukta)', ...fontFamily.sans],
         serif: ['var(--font-playfair)', ...fontFamily.serif],
       },
+      colors: {
+        'coral-red': '#E1523D',
+        'tangerine': '#ED8B16',
+      },
     },
   },
   plugins: [],
