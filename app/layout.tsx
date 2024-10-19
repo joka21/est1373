@@ -5,8 +5,8 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Mode aus Krefeld | est1373.de',
-  description: 'A Next.js project with TypeScript and TailwindCSS.',
-  keywords: 'Next.js, Typescript, TailwindCSS',
+  description: 'Ein Projekt in der Tradtion dieser Stadt.',
+  keywords: 'Krefeld, Samt und Seide, nachhaltige Mode, Mode, Kleidung, Kleidung aus Krefeld',
 };
 const mukta = Mukta({ 
   subsets: ['latin', 'devanagari'],
