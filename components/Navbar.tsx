@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
             </div>
           </div>
           <div className="hidden md:flex items-center space-x-1">
-            {['Home', 'Wir', 'Online Shops', 'Ideen', 'Botope'].map((item) => (
+            {['Home', 'about', 'Shop', 'Ideen', 'Botope'].map((item) => (
               <Link 
                 key={item} 
                 href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`}
