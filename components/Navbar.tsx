@@ -17,8 +17,8 @@ const Navbar: React.FC = () => {
           <div className="flex space-x-4">
             <div>
               <Link href="/" className="flex items-center py-5 px-2 text-coral-red">
-                <img src="/estLogo.svg" alt="Logo" className="h-8 w-auto mr-2" />
-                <span className="font-bold">YourBrand</span>
+                <img src="/estLogo.svg" alt="Logo" className="h-12 w-auto mr-2" />
+                <span className="font-bold">est.1373</span>
               </Link>
             </div>
           </div>
