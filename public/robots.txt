@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.est1373.de/
+Host: https://www.est1373.de
 
 # Sitemaps
 Sitemap: https://www.est1373.de/sitemap.xml
