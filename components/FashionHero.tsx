@@ -20,85 +20,76 @@ const FashionHero: React.FC = () => {
   };
 
   return (
-    <section className="relative w-screen -left-[8vw] pt-2">
-      <div className="max-w-[1800px] mx-auto">
-        {/* Header Section */}
-        <div className="flex items-center justify-center gap-96 mb-2">
-          <span className="text-yellow-400 animate-pulse">⭐</span>
-          <span className="text-red-500 animate-pulse">🌺</span>
-        </div>
+    <div className="w-full flex flex-col items-center pt-4">
+      {/* Title Section with Icons */}
+      <div className="mb-6 text-center relative w-full">
+        <span className="absolute left-1/2 -translate-x-16 text-yellow-400">⭐</span>
+        <span className="absolute right-1/2 translate-x-16 text-rose-400">🌺</span>
+        <h2 className="text-4xl font-bold mx-auto">
+          Make Your Fashion Look<br />
+          More Charming
+        </h2>
+      </div>
 
-        {/* Main Title */}
-        <div className="text-center mb-6 px-24">
-          <h2 className="text-6xl font-bold inline-block mx-auto max-w-4xl">
-            Make Your Fashion Look<br />
-            More Charming
-          </h2>
-        </div>
-
-        {/* Image Grid - Centered Layout */}
-        <div className="relative w-full max-w-[1600px] mx-auto">
-          {/* Left Images */}
-          <div className="absolute left-0 top-0 space-y-2 z-10">
-            <div className="w-96 h-96 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-              <Image 
-                src={sideImages[0].src}
-                alt={sideImages[0].alt}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="w-96 h-96 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-              <Image 
-                src={sideImages[1].src}
-                alt={sideImages[1].alt}
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-
-          {/* Center Image */}
-          <div className="mx-auto w-[450px] relative z-20" 
-            style={{ 
-              aspectRatio: '689/1200',
-            }}>
+      {/* Images Layout */}
+      <div className="relative flex justify-center items-start mx-auto">
+        {/* Left Column */}
+        <div className="flex flex-col">
+          <div className="w-80 h-64 relative rounded-lg overflow-hidden">
             <Image 
-              src={mainImage.src}
-              alt={mainImage.alt}
+              src={sideImages[0].src}
+              alt={sideImages[0].alt}
               fill
-              priority
-              className="object-cover rounded-lg"
+              className="object-cover"
             />
           </div>
-
-          {/* Right Images */}
-          <div className="absolute right-0 top-0 space-y-2 z-10">
-            <div className="w-96 h-96 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-              <Image 
-                src={sideImages[2].src}
-                alt={sideImages[2].alt}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="w-96 h-96 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
-              <Image 
-                src={sideImages[3].src}
-                alt={sideImages[3].alt}
-                fill
-                className="object-cover"
-              />
-            </div>
+          <div className="w-80 h-64 relative rounded-lg overflow-hidden">
+            <Image 
+              src={sideImages[1].src}
+              alt={sideImages[1].alt}
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
 
-        {/* Bottom Tag */}
-        <div className="text-right mt-2 pr-8">
-          <span className="text-gray-500">#2022</span>
+        {/* Center Image */}
+        <div className="w-[400px] relative -mx-4" style={{ height: '600px' }}>
+          <Image 
+            src={mainImage.src}
+            alt={mainImage.alt}
+            fill
+            priority
+            className="object-cover rounded-lg"
+          />
+        </div>
+
+        {/* Right Column */}
+        <div className="flex flex-col">
+          <div className="w-80 h-64 relative rounded-lg overflow-hidden">
+            <Image 
+              src={sideImages[2].src}
+              alt={sideImages[2].alt}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="w-80 h-64 relative rounded-lg overflow-hidden">
+            <Image 
+              src={sideImages[3].src}
+              alt={sideImages[3].alt}
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
       </div>
-    </section>
+
+      {/* Bottom Tag */}
+      <div className="self-end mt-2 mr-4">
+        <span className="text-gray-500">#2022</span>
+      </div>
+    </div>
   );
 };
 
