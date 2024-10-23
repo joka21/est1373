@@ -20,26 +20,26 @@ const FashionHero: React.FC = () => {
   };
 
   return (
-    <section className="w-full max-w-6xl mx-auto px-4">
+    <section className="w-[120%] -ml-[10%] max-w-[1800px] mx-auto pt-2">
       {/* Header Section */}
-      <div className="flex items-center justify-center gap-64 mb-4">
+      <div className="flex items-center justify-center gap-96 mb-2">
         <span className="text-yellow-400 animate-pulse">⭐</span>
         <span className="text-red-500 animate-pulse">🌺</span>
       </div>
 
       {/* Main Title */}
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold inline-block">
-          Make Your Fashion Look<br />
+      <div className="text-center mb-6">
+        <h2 className="text-5xl font-bold inline-block">
+          Trage Kleidung die zu Dir passt!<br />
           More Charming
         </h2>
       </div>
 
       {/* Image Grid - Centered Layout */}
-      <div className="relative w-full max-w-4xl mx-auto">
+      <div className="relative w-full max-w-[1600px] mx-auto">
         {/* Left Images */}
         <div className="absolute left-0 top-0 space-y-4 z-10">
-          <div className="w-72 h-72 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+          <div className="w-96 h-96 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
             <Image 
               src={sideImages[0].src}
               alt={sideImages[0].alt}
@@ -47,7 +47,7 @@ const FashionHero: React.FC = () => {
               className="object-cover"
             />
           </div>
-          <div className="w-72 h-72 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+          <div className="w-96 h-96 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
             <Image 
               src={sideImages[1].src}
               alt={sideImages[1].alt}
@@ -58,7 +58,7 @@ const FashionHero: React.FC = () => {
         </div>
 
         {/* Center Image */}
-        <div className="mx-auto w-80 relative z-20" 
+        <div className="mx-auto w-[450px] relative z-20" 
           style={{ 
             aspectRatio: '689/1200',
           }}>
@@ -73,7 +73,7 @@ const FashionHero: React.FC = () => {
 
         {/* Right Images */}
         <div className="absolute right-0 top-0 space-y-4 z-10">
-          <div className="w-72 h-72 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+          <div className="w-96 h-96 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
             <Image 
               src={sideImages[2].src}
               alt={sideImages[2].alt}
@@ -81,7 +81,7 @@ const FashionHero: React.FC = () => {
               className="object-cover"
             />
           </div>
-          <div className="w-72 h-72 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
+          <div className="w-96 h-96 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
             <Image 
               src={sideImages[3].src}
               alt={sideImages[3].alt}
@@ -93,9 +93,7 @@ const FashionHero: React.FC = () => {
       </div>
 
       {/* Bottom Tag */}
-      <div className="text-right mt-4">
-        <span className="text-gray-500">#2022</span>
-      </div>
+    
     </section>
   );
 };
