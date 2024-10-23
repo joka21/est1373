@@ -16,6 +16,8 @@ const config: Config = {
       colors: {
         'coral-red': '#E1523D',
         'tangerine': '#ED8B16',
+        'yellow': '#ee9e0a',
+        'black': '#000',
       },
     },
   },

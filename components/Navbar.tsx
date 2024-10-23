@@ -11,65 +11,91 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="font-sans border-b-4 border-tangerine">
-      <div className="max-w-7xl mx-auto px-4"> {/* Erhöht von max-w-6xl auf max-w-7xl */}
-        <div className="flex justify-between">
-          <div className="flex space-x-4">
-            <div>
-              <Link href="/" className="flex items-center py-6 px-2 text-coral-red"> {/* Erhöht padding-y */}
-                <img 
-                  src="/estLogo.svg" 
-                  alt="Logo" 
-                  className="h-16 w-auto mr-3" /* Erhöht von h-12 auf h-16 */
-                />
-                <span className="font-bold text-2xl">est.1373</span> {/* Erhöht von default auf text-2xl */}
-              </Link>
-            </div>
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="flex justify-between items-center">
+          {/* Left spacer for centering on desktop */}
+          <div className="hidden md:block w-40">
+            {/* This empty div helps center the logo */}
           </div>
-          <div className="hidden md:flex items-center space-x-2"> {/* Erhöht space-x-1 auf space-x-2 */}
+
+          {/* Centered Logo */}
+          <div className="flex-1 md:flex-none flex justify-center">
+            <Link href="/" className="flex items-center py-6 px-2">
+              <img
+                src="/estLogo.svg"
+                alt="Logo"
+                className="h-20 w-auto"
+              />
+            </Link>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-2 w-40">
             {['Home', 'about', 'Shop', 'Ideen', 'Botope'].map((item) => (
               <Link
                 key={item}
                 href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`}
                 className="py-6 px-4 text-lg text-coral-red hover:text-tangerine transition duration-300 font-semibold"
-                /* Erhöht padding, Schriftgröße und font-weight */
               >
                 {item}
               </Link>
             ))}
           </div>
-          <div className="md:hidden flex items-center">
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="mobile-menu-button p-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-coral-red"
+              className="p-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-coral-red"
               aria-label="Toggle menu"
             >
-              <svg 
-                className="w-8 h-8 text-coral-red hover:text-tangerine" 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 24 24" 
+              <svg
+                className="w-8 h-8 text-coral-red hover:text-tangerine"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth="2" 
+                  d={isOpen 
+                    ? "M6 18L18 6M6 6l12 12" 
+                    : "M4 6h16M4 12h16M4 18h16"
+                  } 
+                />
               </svg>
             </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu with Animation */}
       <div
-        className={`md:hidden ${isOpen ? "block" : "hidden"} transition-all duration-300 ease-in-out`}
+        className={`
+          md:hidden 
+          fixed 
+          inset-0 
+          z-50 
+          bg-yellow-400
+          transition-transform duration-300 ease-in-out
+          ${isOpen ? 'translate-x-0' : 'translate-x-full'}
+        `}
+        style={{ top: '85px' }} // Height of the navbar
       >
-        {['Home', 'Wir', 'Online Shops', 'Ideen', 'Botope'].map((item) => (
-          <Link
-            key={item}
-            href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`}
-            className="block py-3 px-4 text-lg text-coral-red hover:bg-tangerine hover:text-white transition duration-300 font-semibold"
-            /* Erhöht padding, Schriftgröße und font-weight */
-            onClick={toggleMenu}
-          >
-            {item}
-          </Link>
-        ))}
+        <div className="flex flex-col items-center pt-6">
+          {['Home', 'about', 'Shop', 'Ideen', 'Botope'].map((item) => (
+            <Link
+              key={item}
+              href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`}
+              className="block py-4 px-4 text-xl text-black hover:text-coral-red transition duration-300 font-semibold"
+              onClick={toggleMenu}
+            >
+              {item}
+            </Link>
+          ))}
+        </div>
       </div>
     </nav>
   );
