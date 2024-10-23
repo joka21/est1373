@@ -3,19 +3,21 @@ import Image from 'next/image';
 
 type ImageConfig = {
   src: string;
+  mobileSrc: string;
   alt: string;
 };
 
 const FashionHero: React.FC = () => {
   const sideImages: ImageConfig[] = [
-    { src: '/bilder/bild1.webp', alt: 'Fashion model 1' },
-    { src: '/bilder/bild2.webp', alt: 'Fashion model 2' },
-    { src: '/bilder/bild3.webp', alt: 'Fashion model 3' },
-    { src: '/bilder/bild4.webp', alt: 'Fashion model 4' },
+    { src: '/bilder/bild1.webp', mobileSrc: '/bilder/bild1.webp', alt: 'Fashion model 1' },
+    { src: '/bilder/bild2.webp', mobileSrc: '/bilder/bild2.webp', alt: 'Fashion model 2' },
+    { src: '/bilder/bild3.webp', mobileSrc: '/bilder/bild3.webp', alt: 'Fashion model 3' },
+    { src: '/bilder/bild4.webp', mobileSrc: '/bilder/bild4.webp', alt: 'Fashion model 4' },
   ];
 
   const mainImage: ImageConfig = {
     src: '/bilder/hauptbild.webp',
+    mobileSrc: '/bilder/MobilHauptbild.webp', // Korrigierter Dateiname
     alt: 'Main fashion model',
   };
 
@@ -32,7 +34,7 @@ const FashionHero: React.FC = () => {
       </div>
 
       {/* Images Layout */}
-      <div className="flex justify-center items-start mx-auto">
+      <div className="flex justify-center items-start mx-auto w-full">
         {/* Left Column - Hidden on Mobile */}
         <div className="hidden md:flex flex-col">
           <div className="w-[400px] h-[300px] relative rounded-lg overflow-hidden">
@@ -53,14 +55,23 @@ const FashionHero: React.FC = () => {
           </div>
         </div>
 
-        {/* Center Image - Responsive Size */}
-        <div className="w-[320px] h-[500px] md:w-[500px] md:h-[800px] relative">
+        {/* Center Image - Responsive with different images for mobile/desktop */}
+        <div className="w-full px-4 h-[600px] md:px-0 md:w-[500px] md:h-[800px] relative">
+          <Image 
+            src={mainImage.mobileSrc}
+            alt={mainImage.alt}
+            fill
+            priority
+            className="object-cover md:hidden"
+            sizes="100vw"
+          />
           <Image 
             src={mainImage.src}
             alt={mainImage.alt}
             fill
             priority
-            className="object-cover"
+            className="hidden md:block object-cover"
+            sizes="500px"
           />
         </div>
 
