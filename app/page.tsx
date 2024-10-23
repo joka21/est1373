@@ -5,12 +5,12 @@ function Page() {
     <div className="min-h-screen bg-cream-100 text-gray-900 p-6" lang="de">
       <header>
         <h1 className="text-3xl font-bold mb-6 text-center">
-          Herzlich willkommen bei est1373.de
+        <FashionHero />
         </h1>
       </header>
 
       <main id="main-content" tabIndex={-1} role="main">
-      <FashionHero />
+     
 
         <nav className="mt-8 text-center" aria-label="Hauptnavigation">
           <a 

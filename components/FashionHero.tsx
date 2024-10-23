@@ -29,8 +29,9 @@ const FashionHero: React.FC = () => {
 
       {/* Main Title */}
       <h1 className="text-4xl font-bold text-center mb-12">
-        Make Your Fashion Look<br />
-        More Charming
+        Trage  Kleidung die zu dir passt!
+        <br />
+        finde neue Ideen!
       </h1>
 
       {/* Image Grid */}
