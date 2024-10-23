@@ -29,8 +29,8 @@ const FashionHero: React.FC = () => {
         </div>
 
         {/* Main Title */}
-        <div className="text-center mb-6">
-          <h2 className="text-5xl font-bold inline-block">
+        <div className="text-center mb-6 px-24">
+          <h2 className="text-6xl font-bold inline-block mx-auto max-w-4xl">
             Make Your Fashion Look<br />
             More Charming
           </h2>
@@ -39,7 +39,7 @@ const FashionHero: React.FC = () => {
         {/* Image Grid - Centered Layout */}
         <div className="relative w-full max-w-[1600px] mx-auto">
           {/* Left Images */}
-          <div className="absolute left-4 top-0 space-y-4 z-10">
+          <div className="absolute left-0 top-0 space-y-2 z-10">
             <div className="w-96 h-96 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
               <Image 
                 src={sideImages[0].src}
@@ -73,7 +73,7 @@ const FashionHero: React.FC = () => {
           </div>
 
           {/* Right Images */}
-          <div className="absolute right-4 top-0 space-y-4 z-10">
+          <div className="absolute right-0 top-0 space-y-2 z-10">
             <div className="w-96 h-96 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
               <Image 
                 src={sideImages[2].src}
