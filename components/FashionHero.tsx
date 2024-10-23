@@ -27,8 +27,8 @@ const FashionHero: React.FC = () => {
         <span className="absolute left-1/2 -translate-x-16 text-yellow-400">⭐</span>
         <span className="absolute right-1/2 translate-x-16 text-rose-400">🌺</span>
         <h2 className="text-4xl font-bold mx-auto">
-          Make Your Fashion Look<br />
-          More Charming
+          Trage was Du willst<br />
+            und fühle Dich wohl
         </h2>
       </div>
 
