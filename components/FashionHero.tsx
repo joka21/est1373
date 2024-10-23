@@ -33,8 +33,8 @@ const FashionHero: React.FC = () => {
 
       {/* Images Layout */}
       <div className="flex justify-center items-start mx-auto">
-        {/* Left Column */}
-        <div className="flex flex-col">
+        {/* Left Column - Hidden on Mobile */}
+        <div className="hidden md:flex flex-col">
           <div className="w-[400px] h-[300px] relative rounded-lg overflow-hidden">
             <Image 
               src={sideImages[0].src}
@@ -53,8 +53,14 @@ const FashionHero: React.FC = () => {
           </div>
         </div>
 
-        {/* Center Image */}
-        <div className="w-[500px] relative" style={{ height: '800px' }}>
+        {/* Center Image - Responsive Size */}
+        <div className="w-[320px] md:w-[500px] relative" 
+          style={{ 
+            height: '500px',
+            '@media (min-width: 768px)': {
+              height: '800px'
+            }
+          }}>
           <Image 
             src={mainImage.src}
             alt={mainImage.alt}
@@ -64,8 +70,8 @@ const FashionHero: React.FC = () => {
           />
         </div>
 
-        {/* Right Column */}
-        <div className="flex flex-col">
+        {/* Right Column - Hidden on Mobile */}
+        <div className="hidden md:flex flex-col">
           <div className="w-[400px] h-[300px] relative rounded-lg overflow-hidden">
             <Image 
               src={sideImages[2].src}
