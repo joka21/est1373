@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="font-sans border-b-4 border-tangerine">
+    <nav className="font-sans border-b-4 border-tangerine relative">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Left spacer for centering on desktop */}
@@ -24,7 +24,9 @@ const Navbar: React.FC = () => {
               <img
                 src="/estLogo.svg"
                 alt="Logo"
-                className="h-20 w-auto"
+                className="h-32 w-auto"
+                width={128}
+                height={128}
               />
             </Link>
           </div>
@@ -43,14 +45,15 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden z-50">
             <button
               onClick={toggleMenu}
-              className="p-3 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-coral-red"
+              className="p-3 focus:outline-none"
               aria-label="Toggle menu"
+              aria-expanded={isOpen}
             >
               <svg
-                className="w-8 h-8 text-coral-red hover:text-tangerine"
+                className="w-8 h-8 text-coral-red hover:text-tangerine transition-colors duration-300"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
@@ -77,12 +80,12 @@ const Navbar: React.FC = () => {
           md:hidden 
           fixed 
           inset-0 
-          z-50 
-          bg-yellow-400
+          z-40 
+          bg-yellow
           transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : 'translate-x-full'}
         `}
-        style={{ top: '85px' }} // Height of the navbar
+        style={{ top: '144px' }} // Angepasst an die Logo-Höhe (32) plus Padding
       >
         <div className="flex flex-col items-center pt-6">
           {['Home', 'about', 'Shop', 'Ideen', 'Botope'].map((item) => (
@@ -97,6 +100,18 @@ const Navbar: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* Overlay für den Hintergrund während das Menü geöffnet ist */}
+      <div 
+        className={`
+          fixed inset-0 
+          bg-yellow 
+          transition-opacity duration-300
+          md:hidden
+          ${isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}
+        `}
+        style={{ top: '144px', zIndex: 30 }}
+      />
     </nav>
   );
 };
