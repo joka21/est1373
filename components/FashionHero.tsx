@@ -54,13 +54,7 @@ const FashionHero: React.FC = () => {
         </div>
 
         {/* Center Image - Responsive Size */}
-        <div className="w-[320px] md:w-[500px] relative" 
-          style={{ 
-            height: '500px',
-            '@media (min-width: 768px)': {
-              height: '800px'
-            }
-          }}>
+        <div className="w-[320px] h-[500px] md:w-[500px] md:h-[800px] relative">
           <Image 
             src={mainImage.src}
             alt={mainImage.alt}
