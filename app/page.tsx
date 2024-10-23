@@ -1,17 +1,14 @@
 import React from 'react';
 import FashionHero from '@/components/FashionHero';
+
 function Page() {
   return (
     <div className="min-h-screen bg-cream-100 text-gray-900 p-6" lang="de">
       <header>
-        <h1 className="text-3xl font-bold mb-6 text-center">
         <FashionHero />
-        </h1>
       </header>
 
       <main id="main-content" tabIndex={-1} role="main">
-     
-
         <nav className="mt-8 text-center" aria-label="Hauptnavigation">
           <a 
             href="/shop" 
