@@ -29,9 +29,8 @@ const FashionHero: React.FC = () => {
 
       {/* Main Title */}
       <h1 className="text-4xl font-bold text-center mb-12">
-        Trage  Kleidung die zu dir passt!
-        <br />
-        finde neue Ideen!
+        Make Your Fashion Look<br />
+        More Charming
       </h1>
 
       {/* Image Grid */}
@@ -57,8 +56,11 @@ const FashionHero: React.FC = () => {
         </div>
 
         {/* Middle Column - Main Image */}
-        <div className="space-y-4">
-          <div className="bg-yellow-100 rounded-lg p-4 aspect-[3/4] relative">
+        <div>
+          <div className="bg-yellow-100 rounded-lg p-4 relative" style={{ 
+            aspectRatio: '689/1200',
+            minHeight: 'calc(100% + 2rem)' // Adds extra height to match side columns
+          }}>
             <Image 
               src={mainImage.src}
               alt={mainImage.alt}
