@@ -32,10 +32,10 @@ const FashionHero: React.FC = () => {
       </div>
 
       {/* Images Layout */}
-      <div className="relative flex justify-center items-start mx-auto">
+      <div className="flex justify-center items-start mx-auto">
         {/* Left Column */}
         <div className="flex flex-col">
-          <div className="w-80 h-64 relative rounded-lg overflow-hidden">
+          <div className="w-[400px] h-[300px] relative rounded-lg overflow-hidden">
             <Image 
               src={sideImages[0].src}
               alt={sideImages[0].alt}
@@ -43,7 +43,7 @@ const FashionHero: React.FC = () => {
               className="object-cover"
             />
           </div>
-          <div className="w-80 h-64 relative rounded-lg overflow-hidden">
+          <div className="w-[400px] h-[300px] relative rounded-lg overflow-hidden">
             <Image 
               src={sideImages[1].src}
               alt={sideImages[1].alt}
@@ -54,19 +54,19 @@ const FashionHero: React.FC = () => {
         </div>
 
         {/* Center Image */}
-        <div className="w-[400px] relative -mx-4" style={{ height: '600px' }}>
+        <div className="w-[500px] relative" style={{ height: '800px' }}>
           <Image 
             src={mainImage.src}
             alt={mainImage.alt}
             fill
             priority
-            className="object-cover rounded-lg"
+            className="object-cover"
           />
         </div>
 
         {/* Right Column */}
         <div className="flex flex-col">
-          <div className="w-80 h-64 relative rounded-lg overflow-hidden">
+          <div className="w-[400px] h-[300px] relative rounded-lg overflow-hidden">
             <Image 
               src={sideImages[2].src}
               alt={sideImages[2].alt}
@@ -74,7 +74,7 @@ const FashionHero: React.FC = () => {
               className="object-cover"
             />
           </div>
-          <div className="w-80 h-64 relative rounded-lg overflow-hidden">
+          <div className="w-[400px] h-[300px] relative rounded-lg overflow-hidden">
             <Image 
               src={sideImages[3].src}
               alt={sideImages[3].alt}
