@@ -17,13 +17,12 @@ const FashionHero: React.FC = () => {
 
   const mainImage: ImageConfig = {
     src: '/bilder/hauptbild.webp',
-    mobileSrc: '/bilder/MobilHauptbild.webp', // Korrigierter Dateiname
+    mobileSrc: '/bilder/MobilHauptbild.webp',
     alt: 'Main fashion model',
   };
 
   return (
     <div className="w-full flex flex-col items-center pt-4">
-      {/* Title Section with Icons */}
       <div className="mb-6 text-center relative w-full">
         <span className="absolute left-1/2 -translate-x-16 text-yellow-400">⭐</span>
         <span className="absolute right-1/2 translate-x-16 text-rose-400">🌺</span>
@@ -33,70 +32,75 @@ const FashionHero: React.FC = () => {
         </h2>
       </div>
 
-      {/* Images Layout */}
       <div className="flex justify-center items-start mx-auto w-full">
-        {/* Left Column - Hidden on Mobile */}
+        {/* Desktop Images - Lazy loaded */}
         <div className="hidden md:flex flex-col">
-          <div className="w-[400px] h-[300px] relative rounded-lg overflow-hidden">
+          {[0, 1].map((index) => (
+            <div key={index} className="w-[400px] h-[300px] relative">
+              <Image 
+                src={sideImages[index].src}
+                alt={sideImages[index].alt}
+                width={400}
+                height={300}
+                className="object-cover"
+                loading="lazy"
+                quality={75}
+                sizes="400px"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Main Image - Priority loaded */}
+        <div className="w-full md:w-[500px] relative">
+          {/* Mobile Image */}
+          <div className="block md:hidden w-full h-[600px] relative">
             <Image 
-              src={sideImages[0].src}
-              alt={sideImages[0].alt}
-              fill
+              src={mainImage.mobileSrc}
+              alt={mainImage.alt}
+              width={640}
+              height={960}
+              priority
               className="object-cover"
+              quality={85}
+              sizes="100vw"
             />
           </div>
-          <div className="w-[400px] h-[300px] relative rounded-lg overflow-hidden">
+          
+          {/* Desktop Image */}
+          <div className="hidden md:block h-[800px] relative">
             <Image 
-              src={sideImages[1].src}
-              alt={sideImages[1].alt}
-              fill
+              src={mainImage.src}
+              alt={mainImage.alt}
+              width={500}
+              height={800}
+              priority
               className="object-cover"
+              quality={85}
+              sizes="500px"
             />
           </div>
         </div>
 
-        {/* Center Image - Responsive with different images for mobile/desktop */}
-        <div className="w-full px-4 h-[600px] md:px-0 md:w-[500px] md:h-[800px] relative">
-          <Image 
-            src={mainImage.mobileSrc}
-            alt={mainImage.alt}
-            fill
-            priority
-            className="object-cover md:hidden"
-            sizes="100vw"
-          />
-          <Image 
-            src={mainImage.src}
-            alt={mainImage.alt}
-            fill
-            priority
-            className="hidden md:block object-cover"
-            sizes="500px"
-          />
-        </div>
-
-        {/* Right Column - Hidden on Mobile */}
+        {/* Desktop Images - Lazy loaded */}
         <div className="hidden md:flex flex-col">
-          <div className="w-[400px] h-[300px] relative rounded-lg overflow-hidden">
-            <Image 
-              src={sideImages[2].src}
-              alt={sideImages[2].alt}
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="w-[400px] h-[300px] relative rounded-lg overflow-hidden">
-            <Image 
-              src={sideImages[3].src}
-              alt={sideImages[3].alt}
-              fill
-              className="object-cover"
-            />
-          </div>
+          {[2, 3].map((index) => (
+            <div key={index} className="w-[400px] h-[300px] relative">
+              <Image 
+                src={sideImages[index].src}
+                alt={sideImages[index].alt}
+                width={400}
+                height={300}
+                className="object-cover"
+                loading="lazy"
+                quality={75}
+                sizes="400px"
+              />
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Bottom Tag */}
       <div className="self-end mt-2 mr-4">
         <span className="text-gray-500">#2022</span>
       </div>
