@@ -20,81 +20,80 @@ const FashionHero: React.FC = () => {
   };
 
   return (
-    <section className="w-[110%] -ml-[5%] max-w-7xl mx-auto px-4 pt-2">
+    <section className="w-full max-w-6xl mx-auto px-4">
       {/* Header Section */}
-      <div className="flex items-center justify-between mb-4 px-8">
+      <div className="flex items-center justify-center gap-64 mb-4">
         <span className="text-yellow-400 animate-pulse">⭐</span>
         <span className="text-red-500 animate-pulse">🌺</span>
       </div>
 
       {/* Main Title */}
-      <h2 className="text-4xl font-bold text-center mb-8 px-16 animate-fade-in">
-        Make Your Fashion Look<br />
-        More Charming
-      </h2>
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-bold inline-block">
+          Make Your Fashion Look<br />
+          More Charming
+        </h2>
+      </div>
 
-      {/* Image Grid */}
-      <div className="grid grid-cols-3 gap-2">
-        {/* Left Column */}
-        <div className="space-y-2">
-          <div className="bg-orange-100 rounded-lg p-2 aspect-square relative hover:scale-105 transition-transform duration-300">
+      {/* Image Grid - Centered Layout */}
+      <div className="relative w-full max-w-4xl mx-auto">
+        {/* Left Images */}
+        <div className="absolute left-0 top-0 space-y-4 z-10">
+          <div className="w-72 h-72 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
             <Image 
               src={sideImages[0].src}
               alt={sideImages[0].alt}
               fill
-              className="object-cover rounded-lg"
+              className="object-cover"
             />
           </div>
-          <div className="bg-orange-100 rounded-lg p-2 aspect-square relative hover:scale-105 transition-transform duration-300">
+          <div className="w-72 h-72 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
             <Image 
               src={sideImages[1].src}
               alt={sideImages[1].alt}
               fill
-              className="object-cover rounded-lg"
+              className="object-cover"
             />
           </div>
         </div>
 
-        {/* Middle Column - Main Image */}
-        <div className="-mx-4">
-          <div className="bg-yellow-100 rounded-lg p-2 relative hover:scale-105 transition-transform duration-300" 
-            style={{ 
-              aspectRatio: '689/1200',
-              minHeight: 'calc(100% + 1rem)'
-            }}>
-            <Image 
-              src={mainImage.src}
-              alt={mainImage.alt}
-              fill
-              priority
-              className="object-cover rounded-lg"
-            />
-          </div>
+        {/* Center Image */}
+        <div className="mx-auto w-80 relative z-20" 
+          style={{ 
+            aspectRatio: '689/1200',
+          }}>
+          <Image 
+            src={mainImage.src}
+            alt={mainImage.alt}
+            fill
+            priority
+            className="object-cover rounded-lg"
+          />
         </div>
 
-        {/* Right Column */}
-        <div className="space-y-2 -ml-4">
-          <div className="bg-purple-100 rounded-lg p-2 aspect-square relative hover:scale-105 transition-transform duration-300">
+        {/* Right Images */}
+        <div className="absolute right-0 top-0 space-y-4 z-10">
+          <div className="w-72 h-72 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
             <Image 
               src={sideImages[2].src}
               alt={sideImages[2].alt}
               fill
-              className="object-cover rounded-lg"
+              className="object-cover"
             />
           </div>
-          <div className="bg-blue-100 rounded-lg p-2 aspect-square relative hover:scale-105 transition-transform duration-300">
+          <div className="w-72 h-72 relative rounded-lg overflow-hidden hover:scale-105 transition-transform duration-300">
             <Image 
               src={sideImages[3].src}
               alt={sideImages[3].alt}
               fill
-              className="object-cover rounded-lg"
+              className="object-cover"
             />
           </div>
         </div>
       </div>
 
-      {/* Bottom Section */}
-      <div className="text-right mt-2">
+      {/* Bottom Tag */}
+      <div className="text-right mt-4">
         <span className="text-gray-500">#2022</span>
       </div>
     </section>
@@ -102,4 +101,3 @@ const FashionHero: React.FC = () => {
 };
 
 export default FashionHero;
-
