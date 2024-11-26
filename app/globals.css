@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --deepTeal: #003547;
+  --seaGreen: #005E54;
+  --chartreuse: #C2BB00;
+  --coral: #E1523D;
+  --tangerine: #ED8B16;
+  --black: #000000;
+  --white: #FFFFFF;
+}
+
+body {
+  color: var(--deepTeal);
+  background: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
