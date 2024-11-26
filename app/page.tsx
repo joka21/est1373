@@ -6,7 +6,7 @@ export default function Home() {
     <main>
       <Hero />
       <Slider />
-      {/* Weitere Komponenten */}
+      {/* Weietere Komponenten */}
     </main>
   );
 }
