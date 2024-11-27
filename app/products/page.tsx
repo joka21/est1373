@@ -6,7 +6,7 @@ type Product = {
 
 export default async function ProductsPage() {
   try {
-    const res = await fetch('https://est1373.vercel.app/products', {
+    const res = await fetch('https://est1373.vercel.app/api/products', {
       cache: 'no-store',
     });
 
