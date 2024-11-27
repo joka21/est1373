@@ -42,6 +42,7 @@ export default async function ProductsPage() {
             >
               <article className="border rounded-lg shadow-sm overflow-hidden transition-shadow hover:shadow-md">
                 <div className="relative h-72">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   {product.images?.[0] ? (
                     <img
                       src={product.images[0].src}
@@ -83,10 +84,6 @@ export default async function ProductsPage() {
                       ))}
                     </div>
                   )}
-
-                  <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded-md opacity-0 group-hover:opacity-100 transition-opacity">
-                    Details ansehen
-                  </button>
                 </div>
               </article>
             </Link>
@@ -105,12 +102,6 @@ export default async function ProductsPage() {
           <p className="text-gray-600 mb-4">
             {error instanceof Error ? error.message : 'Ein unerwarteter Fehler ist aufgetreten'}
           </p>
-          <button 
-            onClick={() => window.location.reload()}
-            className="bg-red-600 text-white px-6 py-2 rounded-md hover:bg-red-700 transition-colors"
-          >
-            Erneut versuchen
-          </button>
         </div>
       </div>
     );
