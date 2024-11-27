@@ -18,7 +18,7 @@ export default function Hero() {
       </div>
       
       <div className="relative h-full max-w-[90rem] mx-auto px-4 flex flex-col justify-center">
-        <h1 className="text-sm md:text-xl font-light text-white uppercase tracking-wider">
+        <h1 className="text-sm md:text-xl font-light text-white  tracking-wider">
           Mode und Nachhaltigkeit: freitag, 1. oktober 1373 – am niederrhein wird eine neue stadt gegründet: krefeld
         </h1>
         <h2 className="pt-4 md:pt-8 text-4xl md:text-[8rem] leading-none font-light text-white">
