@@ -1,4 +1,5 @@
 // app/products/page.tsx
+import WooCommerceAPI from '../utils/woocommerce';
 
 interface WooCommerceProduct {
   id: number;
@@ -19,24 +20,18 @@ interface WooCommerceProduct {
 
 export default async function ProductsPage() {
   try {
-    // Vollständige URL verwenden
-    const res = await fetch('https://est1373.vercel.app/api/products', {
-      cache: 'no-store',
+    // Direkte Verwendung der WooCommerce API
+    const response = await WooCommerceAPI.get('products', {
+      params: { per_page: 10 }
     });
 
-    if (!res.ok) {
-      const errorText = await res.text();
-      console.error('API Response:', errorText);
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-
-    const products = (await res.json()) as WooCommerceProduct[];
+    const products = response.data;
 
     return (
       <div className="p-4">
         <h1 className="text-2xl font-bold mb-6">Unsere Produkte</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product) => (
+          {products.map((product: WooCommerceProduct) => (
             <div key={product.id} className="border rounded-lg shadow-sm overflow-hidden">
               {product.images?.[0] && (
                 <img
@@ -75,13 +70,10 @@ export default async function ProductsPage() {
         <p className="text-gray-600">
           {error instanceof Error ? error.message : 'Ein unerwarteter Fehler ist aufgetreten'}
         </p>
-        <button 
-          onClick={() => window.location.reload()}
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-        >
-          Erneut versuchen
-        </button>
       </div>
     );
   }
 }
+
+// Verhindert Caching der Seite
+export const revalidate = 0;
