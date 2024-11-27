@@ -6,7 +6,8 @@ type Product = {
 
 export default async function ProductsPage() {
   try {
-    const res = await fetch('https://est1373.vercel.app/api/products', {
+    // Relativer Pfad statt absolute URL
+    const res = await fetch('/api/products', {
       cache: 'no-store',
     });
 
@@ -15,7 +16,6 @@ export default async function ProductsPage() {
       throw new Error(`Fehler beim Abrufen der Produkte: ${errorMessage}`);
     }
 
-    // Typisierung der JSON-Antwort mit Type Assertion
     const products = (await res.json()) as Product[];
 
     return (
@@ -32,6 +32,7 @@ export default async function ProductsPage() {
       </div>
     );
   } catch (error) {
+    console.error('Fetch error:', error);
     return (
       <div>
         <h1>Fehler</h1>
@@ -40,4 +41,3 @@ export default async function ProductsPage() {
     );
   }
 }
-
