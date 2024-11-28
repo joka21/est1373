@@ -35,11 +35,11 @@ export default async function ProductsPage() {
         <h1 className="text-6xl font-bold mb-8">Unsere Produkte</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {products.map((product: WooCommerceProduct) => (
-            <Link 
-              href={`/products/${product.id}`} 
-              key={product.id}
-              className="group block"
-            >
+           <Link 
+           href={`/products/${encodeURIComponent(product.name.toLowerCase().replace(/\s+/g, '-'))}`} 
+           key={product.id}
+           className="group block"
+         >
               <article className="border rounded-lg shadow-sm overflow-hidden transition-shadow hover:shadow-md">
                 <div className="relative h-72">
                   {/* eslint-disable-next-line @next/next/no-img-element */}

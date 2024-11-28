@@ -5,10 +5,11 @@ const nextConfig: NextConfig = {
     WC_CONSUMER_KEY: process.env.WC_CONSUMER_KEY || "",
     WC_CONSUMER_SECRET: process.env.WC_CONSUMER_SECRET || "",
   },
-  reactStrictMode: true, // Empfohlen für besseres Debugging
-  
+  reactStrictMode: true,
+  images: {
+    domains: ['deinprojekt.org']
+  },
 };
 
 export default nextConfig;
-
 
