@@ -1,14 +1,19 @@
 import WooCommerceAPI from '../../utils/woocommerce';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
+import { Metadata } from 'next';
 
-// Korrekte Typisierung für Next.js App Router Pages
-interface PageProps {
-  params: {
-    slug: string;
-  };
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
+// Typisierung für generateMetadata
+type GenerateMetadataProps = {
+  params: { slug: string };
+  searchParams: { [key: string]: string | undefined };
+};
+
+// Typisierung für die Page Component
+type PageProps = {
+  params: { slug: string };
+  searchParams: { [key: string]: string | undefined };
+};
 
 interface WooCommerceProduct {
   id: number;
@@ -30,13 +35,24 @@ interface WooCommerceProduct {
   }>;
   on_sale: boolean;
 }
-export default async function ProductPage({ params, searchParams }:  PageProps) {
+
+export async function generateMetadata(
+  { params }: GenerateMetadataProps
+): Promise<Metadata> {
+  return {
+    title: params.slug,
+  };
+}
+
+// Page Component
+export default async function Page({ params }: PageProps) {
   try {
     const response = await WooCommerceAPI.get('products', {
       params: {
         search: params.slug.replace(/-/g, ' ')
       }
     });
+
 
    
 
