@@ -24,36 +24,27 @@ interface WooCommerceProduct {
   on_sale: boolean;
 }
 
-type SearchParams = { [key: string]: string | string[] | undefined };
-
+// @ts-ignore - Next.js page props type issue
 export default async function Page({ 
-  params, 
-  searchParams 
+  params 
 }: { 
-  params: { slug: string }; 
-  searchParams?: SearchParams;
+  params: { slug: string }
 }) {
   try {
-    const getProduct = async () => {
-      const response = await WooCommerceAPI.get('products', {
-        params: {
-          search: params.slug.replace(/-/g, ' ')
-        }
-      });
-  
-      const product: WooCommerceProduct = response.data[0];
-  
-      if (!product) {
-        notFound();
+    const response = await WooCommerceAPI.get('products', {
+      params: {
+        search: params.slug.replace(/-/g, ' ')
       }
-  
-      return product;
-    };
+    });
 
-    const product = await getProduct();
+    const product: WooCommerceProduct = response.data[0];
+
+    if (!product) {
+      notFound();
+    }
 
     return (
-      <div className="p-4 max-w-7xl mx-auto">
+      <div className="p-4 max-w-5xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Produktbilder */}
           <div className="space-y-4">
