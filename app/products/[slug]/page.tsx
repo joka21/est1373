@@ -1,14 +1,13 @@
-// app/products/[slug]/page.tsx
-// app/products/[slug]/page.tsx
-import WooCommerceAPI from '../../utils/woocommerce'; // Pfad korrigiert
+import WooCommerceAPI from '../../utils/woocommerce';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 
-interface ProductPageProps {
+type Props = {
   params: {
     slug: string;
   };
-}
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
 interface WooCommerceProduct {
   id: number;
@@ -31,13 +30,15 @@ interface WooCommerceProduct {
   on_sale: boolean;
 }
 
-export default async function ProductPage({ params }: ProductPageProps) {
+export default async function ProductPage({ params, searchParams }: Props) {
   try {
     const response = await WooCommerceAPI.get('products', {
       params: {
         search: params.slug.replace(/-/g, ' ')
       }
     });
+
+   
 
     const product: WooCommerceProduct = response.data[0];
 
