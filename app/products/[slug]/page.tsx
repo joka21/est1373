@@ -2,12 +2,13 @@ import WooCommerceAPI from '../../utils/woocommerce';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 
-type Props = {
+// Korrekte Typisierung für Next.js App Router Pages
+interface PageProps {
   params: {
     slug: string;
   };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
 
 interface WooCommerceProduct {
   id: number;
@@ -29,8 +30,7 @@ interface WooCommerceProduct {
   }>;
   on_sale: boolean;
 }
-
-export default async function ProductPage({ params, searchParams }: Props) {
+export default async function ProductPage({ params, searchParams }:  PageProps) {
   try {
     const response = await WooCommerceAPI.get('products', {
       params: {
