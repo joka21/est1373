@@ -26,15 +26,15 @@ interface WooCommerceProduct {
 
 type SearchParams = { [key: string]: string | string[] | undefined };
 
-export default function Page({ 
+export default async function Page({ 
   params, 
   searchParams 
 }: { 
   params: { slug: string }; 
   searchParams?: SearchParams;
 }) {
-  const getProduct = async () => {
-    try {
+  try {
+    const getProduct = async () => {
       const response = await WooCommerceAPI.get('products', {
         params: {
           search: params.slug.replace(/-/g, ' ')
@@ -48,13 +48,10 @@ export default function Page({
       }
   
       return product;
-    } catch (error) {
-      console.error('Error loading product:', error);
-      throw error;
-    }
-  };
+    };
 
-  const product = await getProduct();
+    const product = await getProduct();
+
     return (
       <div className="p-4 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8">
