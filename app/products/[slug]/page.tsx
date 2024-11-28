@@ -1,7 +1,7 @@
 // app/products/[slug]/page.tsx
 
 // @ts-nocheck
-import WooCommerceAPI from '../../../utils/woocommerce';
+import WooCommerceAPI from '../../utils/woocommerce';
 import Image from 'next/image';
 
 export default async function Page({ 
