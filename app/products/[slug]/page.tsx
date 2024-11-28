@@ -1,19 +1,6 @@
 import WooCommerceAPI from '../../utils/woocommerce';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-import { Metadata } from 'next';
-
-// Typisierung für generateMetadata
-type GenerateMetadataProps = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | undefined };
-};
-
-// Typisierung für die Page Component
-type PageProps = {
-  params: { slug: string };
-  searchParams: { [key: string]: string | undefined };
-};
 
 interface WooCommerceProduct {
   id: number;
@@ -36,22 +23,19 @@ interface WooCommerceProduct {
   on_sale: boolean;
 }
 
-export async function generateMetadata(
-  { params }: GenerateMetadataProps
-): Promise<Metadata> {
-  return {
-    title: params.slug,
-  };
-}
-
-// Page Component
-export default async function Page({ params }: PageProps) {
+export default async function Page({ 
+  params 
+}: { 
+  params: { slug: string } 
+}) {
   try {
     const response = await WooCommerceAPI.get('products', {
       params: {
         search: params.slug.replace(/-/g, ' ')
       }
     });
+
+    // Rest des Codes bleibt gleich...
 
 
    
