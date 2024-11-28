@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import WooCommerceAPI from '../../utils/woocommerce';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
@@ -23,29 +24,37 @@ interface WooCommerceProduct {
   on_sale: boolean;
 }
 
-export default async function Page({ 
-  params 
+type SearchParams = { [key: string]: string | string[] | undefined };
+
+export default function Page({ 
+  params, 
+  searchParams 
 }: { 
-  params: { slug: string } 
+  params: { slug: string }; 
+  searchParams?: SearchParams;
 }) {
-  try {
-    const response = await WooCommerceAPI.get('products', {
-      params: {
-        search: params.slug.replace(/-/g, ' ')
+  const getProduct = async () => {
+    try {
+      const response = await WooCommerceAPI.get('products', {
+        params: {
+          search: params.slug.replace(/-/g, ' ')
+        }
+      });
+  
+      const product: WooCommerceProduct = response.data[0];
+  
+      if (!product) {
+        notFound();
       }
-    });
-
-    // Rest des Codes bleibt gleich...
-
-
-   
-
-    const product: WooCommerceProduct = response.data[0];
-
-    if (!product) {
-      notFound();
+  
+      return product;
+    } catch (error) {
+      console.error('Error loading product:', error);
+      throw error;
     }
+  };
 
+  const product = await getProduct();
     return (
       <div className="p-4 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-8">
